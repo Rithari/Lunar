@@ -38,7 +38,7 @@ namespace Lunar.PortableExecutable
             {
                 var debugDirectoryData = peReader.ReadDebugDirectory();
 
-                if (debugDirectoryData[0].Type == DebugDirectoryEntryType.CodeView)
+                if (debugDirectoryData.Length != 0 && debugDirectoryData[0].Type == DebugDirectoryEntryType.CodeView)
                 {
                     DebugDirectoryData = peReader.ReadCodeViewDebugDirectoryData(debugDirectoryData[0]);
                 }
